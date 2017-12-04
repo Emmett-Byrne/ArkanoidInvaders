@@ -1,0 +1,110 @@
+﻿  main.cpp
+  LevelLoader.cpp
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(13): error C2653: 'YAML': is not a class or namespace name
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(13): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(13): error C2143: syntax error: missing ',' before '&'
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(14): error C2803: 'operator >>' must have at least one formal parameter of class type
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(14): error C2805: binary 'operator >>' has too few parameters
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(15): error C2065: 'obstacle': undeclared identifier
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(15): error C2228: left of '.m_type' must have class/struct/union
+  e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(15): note: type is 'unknown-type'
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(15): error C2065: 'obstacleNode': undeclared identifier
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(15): error C2228: left of '.as' must have class/struct/union
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(15): error C2059: syntax error: ')'
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(16): error C2065: 'obstacle': undeclared identifier
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(16): error C2228: left of '.m_position' must have class/struct/union
+  e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(16): note: type is 'unknown-type'
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(16): error C2228: left of '.x' must have class/struct/union
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(16): error C2065: 'obstacleNode': undeclared identifier
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(16): error C2228: left of '.as' must have class/struct/union
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(16): error C2062: type 'float' unexpected
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(17): error C2065: 'obstacle': undeclared identifier
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(17): error C2228: left of '.m_position' must have class/struct/union
+  e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(17): note: type is 'unknown-type'
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(17): error C2228: left of '.y' must have class/struct/union
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(17): error C2065: 'obstacleNode': undeclared identifier
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(17): error C2228: left of '.as' must have class/struct/union
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(17): error C2062: type 'float' unexpected
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(18): error C2065: 'obstacle': undeclared identifier
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(18): error C2228: left of '.m_rotation' must have class/struct/union
+  e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(18): note: type is 'unknown-type'
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(18): error C2065: 'obstacleNode': undeclared identifier
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(18): error C2228: left of '.as' must have class/struct/union
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(18): error C2062: type 'double' unexpected
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(28): error C2653: 'YAML': is not a class or namespace name
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(28): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(28): error C2143: syntax error: missing ',' before '&'
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(29): error C2803: 'operator >>' must have at least one formal parameter of class type
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(29): error C2805: binary 'operator >>' has too few parameters
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(30): error C2065: 'background': undeclared identifier
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(30): error C2228: left of '.m_fileName' must have class/struct/union
+  e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(30): note: type is 'unknown-type'
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(30): error C2065: 'backgroundNode': undeclared identifier
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(30): error C2228: left of '.as' must have class/struct/union
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(30): error C2059: syntax error: ')'
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(40): error C2653: 'YAML': is not a class or namespace name
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(40): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(40): error C2143: syntax error: missing ',' before '&'
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(41): error C2803: 'operator >>' must have at least one formal parameter of class type
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(41): error C2805: binary 'operator >>' has too few parameters
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(42): error C2065: 'tank': undeclared identifier
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(42): error C2228: left of '.m_position' must have class/struct/union
+  e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(42): note: type is 'unknown-type'
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(42): error C2228: left of '.x' must have class/struct/union
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(42): error C2065: 'tankNode': undeclared identifier
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(42): error C2228: left of '.as' must have class/struct/union
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(42): error C2062: type 'float' unexpected
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(43): error C2065: 'tank': undeclared identifier
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(43): error C2228: left of '.m_position' must have class/struct/union
+  e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(43): note: type is 'unknown-type'
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(43): error C2228: left of '.y' must have class/struct/union
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(43): error C2065: 'tankNode': undeclared identifier
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(43): error C2228: left of '.as' must have class/struct/union
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(43): error C2062: type 'float' unexpected
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(55): error C2653: 'YAML': is not a class or namespace name
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(55): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(55): error C2143: syntax error: missing ',' before '&'
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(56): error C2803: 'operator >>' must have at least one formal parameter of class type
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(56): error C2805: binary 'operator >>' has too few parameters
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(57): error C2065: 'levelNode': undeclared identifier
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(57): error C2065: 'level': undeclared identifier
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(57): error C2228: left of '.m_background' must have class/struct/union
+  e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(57): note: type is 'unknown-type'
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(59): error C2065: 'levelNode': undeclared identifier
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(59): error C2065: 'level': undeclared identifier
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(59): error C2228: left of '.m_tank' must have class/struct/union
+  e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(59): note: type is 'unknown-type'
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(61): error C2653: 'YAML': is not a class or namespace name
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(61): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(61): error C2143: syntax error: missing ';' before '&'
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(61): error C2082: redefinition of formal parameter 'Node'
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(61): error C2065: 'obstaclesNode': undeclared identifier
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(61): error C2065: 'levelNode': undeclared identifier
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(61): error C2228: left of '.as' must have class/struct/union
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(61): error C2059: syntax error: ')'
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(62): error C2065: 'obstaclesNode': undeclared identifier
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(62): error C2228: left of '.size' must have class/struct/union
+  e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(62): note: type is 'unknown-type'
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(65): error C2065: 'obstaclesNode': undeclared identifier
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(66): error C2065: 'level': undeclared identifier
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(66): error C2228: left of '.m_obstacles' must have class/struct/union
+  e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(66): note: type is 'unknown-type'
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(66): error C2228: left of '.push_back' must have class/struct/union
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(80): error C2653: 'YAML': is not a class or namespace name
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(80): error C2065: 'Node': undeclared identifier
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(80): error C2146: syntax error: missing ';' before identifier 'baseNode'
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(80): error C2065: 'baseNode': undeclared identifier
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(80): error C3861: 'LoadFile': identifier not found
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(81): error C2065: 'baseNode': undeclared identifier
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(81): error C2228: left of '.IsNull' must have class/struct/union
+  e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(81): note: type is 'unknown-type'
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(86): error C2065: 'baseNode': undeclared identifier
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(88): error C2653: 'YAML': is not a class or namespace name
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(88): error C2061: syntax error: identifier 'ParserException'
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(88): error C2310: catch handlers must specify one type
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(90): error C2065: 'e': undeclared identifier
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(90): error C2228: left of '.what' must have class/struct/union
+  e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(90): note: type is 'unknown-type'
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\levelloader.cpp(93): error C2311: 'std::exception &': is caught by '...' on line 88
+  Game.cpp
+  Generating Code...

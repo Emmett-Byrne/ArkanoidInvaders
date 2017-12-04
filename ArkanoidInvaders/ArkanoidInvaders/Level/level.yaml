@@ -1,0 +1,6 @@
+bricks:
+   - position: {x: 100, y: 660}
+invaders:
+   - position: {x: 100, y: 660}
+paddle:
+   position: {x: 400, y: 550}
