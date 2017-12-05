@@ -36,6 +36,26 @@ struct TankData
 	sf::Vector2f m_position;
 };
 
+struct BrickData
+{
+	sf::Vector2f m_position;
+};
+
+struct InvaderData
+{
+	sf::Vector2f m_position;
+};
+
+struct PlayerData
+{
+	sf::Vector2f m_position;
+};
+
+struct BoltData
+{
+	sf::Vector2f m_position;
+};
+
 /// <summary>
 /// @brief A struct representing all the Level Data.
 /// 
@@ -43,9 +63,10 @@ struct TankData
 /// </summary>
 struct LevelData
 {
-	BackgroundData m_background;
-	TankData m_tank;
-	std::vector<ObstacleData> m_obstacles;
+	PlayerData m_player;
+	BoltData m_bolt;
+	std::vector<BrickData> m_bricks;
+	std::vector<InvaderData> m_invaders;
 };
 
 /// <summary>

@@ -43,6 +43,33 @@ void operator >> (const YAML::Node& tankNode, TankData& tank)
 	tank.m_position.y = tankNode["position"]["y"].as<float>();
 }
 
+
+
+void operator >> (const YAML::Node& invaderNode, InvaderData& invader)
+{
+	invader.m_position.x = invaderNode["position"]["x"].as<float>();
+	invader.m_position.y = invaderNode["position"]["y"].as<float>();
+}
+
+void operator >> (const YAML::Node& brickNode, BrickData& brick)
+{
+	brick.m_position.x = brickNode["position"]["x"].as<float>();
+	brick.m_position.y = brickNode["position"]["y"].as<float>();
+}
+
+void operator >> (const YAML::Node& playerNode, PlayerData& player)
+{
+	player.m_position.x = playerNode["position"]["x"].as<float>();
+	player.m_position.y = playerNode["position"]["y"].as<float>();
+}
+
+void operator >> (const YAML::Node& boltNode, BoltData& bolt)
+{
+	bolt.m_position.x = boltNode["position"]["x"].as<float>();
+	bolt.m_position.y = boltNode["position"]["y"].as<float>();
+}
+
+
 /// <summary>
 /// @brief Top level function that extracts various game data from the YAML data stucture.
 /// 
@@ -54,7 +81,29 @@ void operator >> (const YAML::Node& tankNode, TankData& tank)
 ////////////////////////////////////////////////////////////
 void operator >> (const YAML::Node& levelNode, LevelData& level)
 {
-	levelNode["background"] >> level.m_background;
+	levelNode["player"] >> level.m_player;
+	levelNode["bolt"] >> level.m_bolt;
+
+	const YAML::Node& invadersNode = levelNode["invaders"].as<YAML::Node>();
+	for (unsigned i = 0; i < invadersNode.size(); ++i)
+	{
+		InvaderData invader;
+		invadersNode[i] >> invader;
+		level.m_invaders.push_back(invader);
+	}
+
+	const YAML::Node& bricksNode = levelNode["bricks"].as<YAML::Node>();
+	for (unsigned i = 0; i < levelNode.size(); ++i)
+	{
+		InvaderData brick;
+		levelNode[i] >> brick;
+		level.m_invaders.push_back(brick);
+	}
+
+
+	//keeping for reference
+
+	/*levelNode["background"] >> level.m_background;
 
 	levelNode["tank"] >> level.m_tank;
 
@@ -64,7 +113,7 @@ void operator >> (const YAML::Node& levelNode, LevelData& level)
 		ObstacleData obstacle;
 		obstaclesNode[i] >> obstacle;
 		level.m_obstacles.push_back(obstacle);
-	}
+	}*/
 }
 
 ////////////////////////////////////////////////////////////

@@ -1,6 +1,12 @@
 bricks:
-   - position: {x: 100, y: 660}
+   - position: {x: 200, y: 400}
+   - position: {x: 400, y: 400}
+   - position: {x: 600, y: 400}
 invaders:
-   - position: {x: 100, y: 660}
+   - position: {x: 200, y: 200}
+   - position: {x: 400, y: 200}
+   - position: {x: 600, y: 200}
 paddle:
-   position: {x: 400, y: 550}
+   position: {x: 400, y: 100}
+bolt:
+   position: {x: 400, y: 150}
