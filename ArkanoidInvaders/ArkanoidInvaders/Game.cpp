@@ -10,8 +10,18 @@ Game::Game() :
 	m_window{ sf::VideoMode{ 800, 600, 32 }, "Typography Animation" },
 	m_exitGame{ false } //when true game will exit
 {
-	setupFontAndText(); // load font 
-	setupSprite(); // load texture
+	if (!LevelLoader::load(1, m_level))
+	{
+		return;
+	}
+
+	m_player.setPosition(m_level.m_player.m_position);
+	m_bolt.setPosition(m_level.m_bolt.m_position);
+	setupBricks();
+	setupInvaders();
+
+	//setupFontAndText(); // load font 
+	//setupSprite(); // load texture
 }
 
 
@@ -80,7 +90,33 @@ void Game::update(sf::Time t_deltaTime)
 void Game::render()
 {
 	m_window.clear(sf::Color::Black);
+
+	for (Brick brick : m_bricks)
+	{
+		brick.render(m_window);
+	}
+
 	m_window.display();
+}
+
+void Game::setupInvaders()
+{
+	for (InvaderData const & invaderData : m_level.m_invaders)
+	{
+		Invader invader;
+		invader.setPosition(invaderData.m_position);
+		m_invaders.push_back(invader);
+	}
+}
+
+void Game::setupBricks()
+{
+	for (BrickData const & brickData : m_level.m_bricks)
+	{
+		Brick brick;
+		brick.setPosition(brickData.m_position);
+		m_bricks.push_back(brick);
+	}
 }
 
 /// <summary>

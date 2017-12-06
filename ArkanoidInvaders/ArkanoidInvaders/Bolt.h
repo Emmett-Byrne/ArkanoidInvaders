@@ -7,6 +7,7 @@ public:
 	Bolt();
 	~Bolt();
 
+	void setPosition(sf::Vector2f pos);
 	void render(sf::RenderWindow & window);
 
 private:

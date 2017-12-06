@@ -4,8 +4,13 @@
 #ifndef GAME
 #define GAME
 
+#include <iostream>
 #include <SFML\Graphics.hpp>
 #include "LevelLoader.h"
+#include "Player.h"
+#include "Bolt.h"
+#include "Brick.h"
+#include "Invader.h"
 
 class Game
 {
@@ -23,6 +28,11 @@ private:
 	void update(sf::Time t_deltaTime);
 	void render();
 
+	void setupInvaders();
+	void setupBricks();
+
+
+
 	void setupFontAndText();
 	void setupSprite();
 
@@ -34,6 +44,13 @@ private:
 	sf::Sprite m_logoSprite; // sprite used for sfml logo
 	bool m_exitGame; // control exiting game
 
+	LevelData m_level;
+
+	Player m_player;
+	Bolt m_bolt;
+
+	std::vector<Brick> m_bricks;
+	std::vector<Invader> m_invaders;
 };
 
 #endif // !GAME

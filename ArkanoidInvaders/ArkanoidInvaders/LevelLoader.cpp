@@ -45,16 +45,16 @@ void operator >> (const YAML::Node& tankNode, TankData& tank)
 
 
 
-void operator >> (const YAML::Node& invaderNode, InvaderData& invader)
+void operator >> (const YAML::Node& invadersNode, InvaderData& invader)
 {
-	invader.m_position.x = invaderNode["position"]["x"].as<float>();
-	invader.m_position.y = invaderNode["position"]["y"].as<float>();
+	invader.m_position.x = invadersNode["position"]["x"].as<float>();
+	invader.m_position.y = invadersNode["position"]["y"].as<float>();
 }
 
-void operator >> (const YAML::Node& brickNode, BrickData& brick)
+void operator >> (const YAML::Node& bricksNode, BrickData& brick)
 {
-	brick.m_position.x = brickNode["position"]["x"].as<float>();
-	brick.m_position.y = brickNode["position"]["y"].as<float>();
+	brick.m_position.x = bricksNode["position"]["x"].as<float>();
+	brick.m_position.y = bricksNode["position"]["y"].as<float>();
 }
 
 void operator >> (const YAML::Node& playerNode, PlayerData& player)
@@ -81,7 +81,7 @@ void operator >> (const YAML::Node& boltNode, BoltData& bolt)
 ////////////////////////////////////////////////////////////
 void operator >> (const YAML::Node& levelNode, LevelData& level)
 {
-	levelNode["player"] >> level.m_player;
+	levelNode["paddle"] >> level.m_player;
 	levelNode["bolt"] >> level.m_bolt;
 
 	const YAML::Node& invadersNode = levelNode["invaders"].as<YAML::Node>();
@@ -93,11 +93,11 @@ void operator >> (const YAML::Node& levelNode, LevelData& level)
 	}
 
 	const YAML::Node& bricksNode = levelNode["bricks"].as<YAML::Node>();
-	for (unsigned i = 0; i < levelNode.size(); ++i)
+	for (unsigned i = 0; i < bricksNode.size(); ++i)
 	{
-		InvaderData brick;
-		levelNode[i] >> brick;
-		level.m_invaders.push_back(brick);
+		BrickData brick;
+		bricksNode[i] >> brick;
+		level.m_bricks.push_back(brick);
 	}
 
 
@@ -120,9 +120,9 @@ void operator >> (const YAML::Node& levelNode, LevelData& level)
 bool LevelLoader::load(int nr, LevelData& level)
 {
 	std::stringstream ss;
-	ss << "./resources/levels/level";
-	ss << nr;
-	ss << ".yaml";
+	ss << "./level/level.yaml";
+	/*ss << nr;
+	ss << ".yaml";*/
 
 	try
 	{

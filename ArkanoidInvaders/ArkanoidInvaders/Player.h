@@ -6,6 +6,7 @@ public:
 	Player();
 	~Player();
 
+	void setPosition(sf::Vector2f pos);
 	void render(sf::RenderWindow & window);
 
 private:
