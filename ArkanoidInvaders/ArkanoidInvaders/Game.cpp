@@ -7,12 +7,18 @@
 
 
 Game::Game() :
-	m_window{ sf::VideoMode{ 800, 600, 32 }, "Typography Animation" },
+	m_window{ sf::VideoMode{ 800, 600, 32 }, "Arkanoid Invaders" },
 	m_exitGame{ false } //when true game will exit
 {
 	if (!LevelLoader::load(1, m_level))
 	{
 		return;
+	}
+
+	if (!m_invaderTexture.loadFromFile("Assets\\Invader.png"))
+	{
+		// simple error message if previous call fails
+		std::cout << "problem loading logo" << std::endl;
 	}
 
 	m_player.setPosition(m_level.m_player.m_position);
@@ -96,6 +102,11 @@ void Game::render()
 		brick.render(m_window);
 	}
 
+	for (Invader invader : m_invaders)
+	{
+		invader.render(m_window);
+	}
+
 	m_window.display();
 }
 
@@ -103,7 +114,7 @@ void Game::setupInvaders()
 {
 	for (InvaderData const & invaderData : m_level.m_invaders)
 	{
-		Invader invader;
+		Invader invader(m_invaderTexture);
 		invader.setPosition(invaderData.m_position);
 		m_invaders.push_back(invader);
 	}
@@ -137,18 +148,4 @@ void Game::setupFontAndText()
 	m_welcomeMessage.setFillColor(sf::Color::Black);
 	m_welcomeMessage.setOutlineThickness(3.0f);
 
-}
-
-/// <summary>
-/// load the texture and setup the sprite for the logo
-/// </summary>
-void Game::setupSprite()
-{
-	if (!m_logoTexture.loadFromFile("ASSETS\\IMAGES\\SFML-LOGO.png"))
-	{
-		// simple error message if previous call fails
-		std::cout << "problem loading logo" << std::endl;
-	}
-	m_logoSprite.setTexture(m_logoTexture);
-	m_logoSprite.setPosition(300.0f, 180.0f);
 }

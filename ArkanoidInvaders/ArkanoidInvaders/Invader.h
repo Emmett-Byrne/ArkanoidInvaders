@@ -1,10 +1,11 @@
 #pragma once
 #include <SFML\Graphics.hpp>
+#include <iostream>
 
 class Invader
 {
 public:
-	Invader();
+	Invader(sf::Texture & tex);
 	~Invader();
 
 	void setPosition(sf::Vector2f pos);
