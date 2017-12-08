@@ -92,6 +92,26 @@ void Game::processEvents()
 			{
 				m_exitGame = true;
 			}
+			if (sf::Keyboard::Left == event.key.code)
+			{
+				m_player.moveLeft();
+			}
+			if (sf::Keyboard::Right == event.key.code)
+			{
+				m_player.moveRight();
+			}
+		}
+
+		if (sf::Event::KeyReleased == event.type) //user key press
+		{
+			if (sf::Keyboard::Left == event.key.code)
+			{
+				m_player.stopLeft();
+			}
+			if (sf::Keyboard::Right == event.key.code)
+			{
+				m_player.stopRight();
+			}
 		}
 	}
 }
@@ -122,12 +142,18 @@ void Game::render()
 
 	for (Brick brick : m_bricks)
 	{
-		brick.render(m_window);
+		if (brick.isAlive())
+		{
+			brick.render(m_window);
+		}
 	}
 
 	for (Invader invader : m_invaders)
 	{
-		invader.render(m_window);
+		if (invader.isAlive())
+		{
+			invader.render(m_window);
+		}
 	}
 
 	m_player.render(m_window);
@@ -158,10 +184,37 @@ void Game::setupBricks()
 
 void Game::checkCollisions()
 {
+	//player - bolt
 	if (CollisionDetector::collision(m_player.getSprite(), m_bolt.getSprite()))
 	{
 		m_bolt.reflectPaddle(m_player.getSprite());
 		//std::cout << "collision" << std::endl;
+	}
+
+	//bolt - invader
+	for (Invader &invader : m_invaders)
+	{
+		if (CollisionDetector::collision(invader.getSprite(), m_bolt.getSprite()))
+		{
+			if (invader.isAlive())
+			{
+				invader.kill();
+				m_bolt.reflectX();
+			}
+		}
+	}
+
+	//bolt - brick
+	for (Brick &brick : m_bricks)
+	{
+		if (CollisionDetector::collision(brick.getSprite(), m_bolt.getSprite()))
+		{
+			if (brick.isAlive())
+			{
+				brick.kill();
+				m_bolt.reflectX();
+			}
+		}
 	}
 }
 

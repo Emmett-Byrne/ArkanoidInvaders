@@ -28,3 +28,13 @@ sf::Sprite Brick::getSprite()
 {
 	return m_shape;
 }
+
+void Brick::kill()
+{
+	m_alive = false;
+}
+
+bool Brick::isAlive()
+{
+	return m_alive;
+}

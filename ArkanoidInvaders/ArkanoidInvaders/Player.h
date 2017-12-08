@@ -14,9 +14,18 @@ public:
 	void render(sf::RenderWindow & window);
 
 	sf::Sprite getSprite();
+	void moveLeft();
+	void moveRight();
+	void stopLeft();
+	void stopRight();
 
 private:
 	sf::Vector2f m_position;
 	sf::Sprite m_shape;
+
+	bool m_moveLeft;
+	bool m_moveRight;
+
+	float m_moveSpeed;
 };
 

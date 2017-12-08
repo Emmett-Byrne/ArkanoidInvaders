@@ -12,6 +12,8 @@ public:
 	void render(sf::RenderWindow & window);
 
 	sf::Sprite getSprite();
+	void kill();
+	bool isAlive();
 private:
 	sf::Vector2f m_position;
 	sf::Sprite m_shape;

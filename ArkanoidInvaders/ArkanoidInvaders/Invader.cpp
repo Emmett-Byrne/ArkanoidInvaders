@@ -28,3 +28,13 @@ sf::Sprite Invader::getSprite()
 {
 	return m_shape;
 }
+
+bool Invader::isAlive()
+{
+	return m_alive;
+}
+
+void Invader::kill()
+{
+	m_alive = false;
+}

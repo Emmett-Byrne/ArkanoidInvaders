@@ -16,6 +16,8 @@ public:
 	void render(sf::RenderWindow & window);
 
 	void reflectPaddle(sf::Sprite sprite);
+	void reflectY();
+	void reflectX();
 
 	sf::Sprite getSprite();
 private:
@@ -25,5 +27,8 @@ private:
 
 	float m_angle; //angle the ball moves at;
 	float m_speed; //scaler for how fast the ball moves
+
+
+	void wallCol();
 };
 

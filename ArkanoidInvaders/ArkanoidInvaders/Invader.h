@@ -12,6 +12,8 @@ public:
 	void render(sf::RenderWindow & window);
 
 	sf::Sprite getSprite();
+	bool isAlive();
+	void kill();
 private:
 	sf::Vector2f m_position;
 	sf::Vector2f m_velocity;

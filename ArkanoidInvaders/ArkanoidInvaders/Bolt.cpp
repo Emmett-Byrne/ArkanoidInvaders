@@ -24,6 +24,7 @@ void Bolt::update(sf::Time t)
 	m_position += velocity;
 
 	m_shape.setPosition(m_position);
+	wallCol();
 }
 
 void Bolt::setPosition(sf::Vector2f pos)
@@ -54,9 +55,48 @@ void Bolt::reflectPaddle(sf::Sprite sprite)
 
 	std::cout << newAngle << std::endl;
 
-	m_angle = newAngle + 180;
+	if (distance <= sprite.getOrigin().x)
+	{
+		m_angle = newAngle + 180;
+	}
+	if (distance > sprite.getOrigin().x)
+	{
+		m_angle = 360 - newAngle;
+	}
+
+
 
 	//Could still get stuck in paddle set y to top of paddle + radius
+}
+
+void Bolt::wallCol()
+{
+	if (m_position.y - m_shape.getOrigin().y < 0)
+	{
+		reflectX();
+	}
+	if (m_position.x - m_shape.getOrigin().x < 0)
+	{
+		reflectY();
+	}
+	if (m_position.x + m_shape.getOrigin().x > 800)
+	{
+		reflectY();
+	}
+}
+
+void Bolt::reflectY()
+{
+	m_angle = 180 - m_angle;
+	if (m_angle < 0)
+	{
+		m_angle += 360;
+	}
+}
+
+void Bolt::reflectX()
+{
+	m_angle = 360 - m_angle;
 }
 
 sf::Sprite Bolt::getSprite()
