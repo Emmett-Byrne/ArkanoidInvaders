@@ -2,7 +2,7 @@
 
 
 
-Invader::Invader(sf::Texture & tex)
+Invader::Invader(sf::Texture & tex) : m_alive(true)
 {
 	m_shape.setTexture(tex);
 	m_shape.setOrigin(m_shape.getLocalBounds().width / 2, m_shape.getLocalBounds().height / 2);
@@ -22,4 +22,9 @@ void Invader::setPosition(sf::Vector2f pos)
 void Invader::render(sf::RenderWindow & window)
 {
 	window.draw(m_shape);
+}
+
+sf::Sprite Invader::getSprite()
+{
+	return m_shape;
 }

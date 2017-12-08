@@ -11,6 +11,7 @@
 #include "Bolt.h"
 #include "Brick.h"
 #include "Invader.h"
+#include "CollisionDetector.h"
 
 class Game
 {
@@ -31,7 +32,7 @@ private:
 	void setupInvaders();
 	void setupBricks();
 
-
+	void checkCollisions();
 
 	void setupFontAndText();
 
@@ -43,6 +44,9 @@ private:
 
 
 	sf::Texture m_invaderTexture; // texture used for invader
+	sf::Texture m_brickTexture;
+	sf::Texture m_playerTexture;
+	sf::Texture m_boltTexture;
 
 	LevelData m_level;
 

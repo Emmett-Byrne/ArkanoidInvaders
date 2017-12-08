@@ -117,18 +117,22 @@
   <ItemGroup>
     <ClCompile Include="Bolt.cpp" />
     <ClCompile Include="Brick.cpp" />
+    <ClCompile Include="CollisionDetector.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Invader.cpp" />
     <ClCompile Include="LevelLoader.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="OrientedBoundingBox.cpp" />
     <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bolt.h" />
     <ClInclude Include="Brick.h" />
+    <ClInclude Include="CollisionDetector.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Invader.h" />
     <ClInclude Include="LevelLoader.h" />
+    <ClInclude Include="OrientedBoundingBox.h" />
     <ClInclude Include="Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

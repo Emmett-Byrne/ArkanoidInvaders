@@ -21,8 +21,26 @@ Game::Game() :
 		std::cout << "problem loading logo" << std::endl;
 	}
 
+	if (!m_brickTexture.loadFromFile("Assets\\Brick.png"))
+	{
+		// simple error message if previous call fails
+		std::cout << "problem loading logo" << std::endl;
+	}
+	if (!m_boltTexture.loadFromFile("Assets\\Bolt.png"))
+	{
+		// simple error message if previous call fails
+		std::cout << "problem loading logo" << std::endl;
+	}
+	if (!m_playerTexture.loadFromFile("Assets\\Player.png"))
+	{
+		// simple error message if previous call fails
+		std::cout << "problem loading logo" << std::endl;
+	}
+
 	m_player.setPosition(m_level.m_player.m_position);
+	m_player.setTexture(m_playerTexture);
 	m_bolt.setPosition(m_level.m_bolt.m_position);
+	m_bolt.setTexture(m_boltTexture);
 	setupBricks();
 	setupInvaders();
 
@@ -88,6 +106,11 @@ void Game::update(sf::Time t_deltaTime)
 	{
 		m_window.close();
 	}
+
+	m_player.update(t_deltaTime);
+	m_bolt.update(t_deltaTime);
+
+	checkCollisions();
 }
 
 /// <summary>
@@ -107,6 +130,9 @@ void Game::render()
 		invader.render(m_window);
 	}
 
+	m_player.render(m_window);
+	m_bolt.render(m_window);
+
 	m_window.display();
 }
 
@@ -124,9 +150,18 @@ void Game::setupBricks()
 {
 	for (BrickData const & brickData : m_level.m_bricks)
 	{
-		Brick brick;
+		Brick brick(m_brickTexture);
 		brick.setPosition(brickData.m_position);
 		m_bricks.push_back(brick);
+	}
+}
+
+void Game::checkCollisions()
+{
+	if (CollisionDetector::collision(m_player.getSprite(), m_bolt.getSprite()))
+	{
+		m_bolt.reflectPaddle(m_player.getSprite());
+		//std::cout << "collision" << std::endl;
 	}
 }
 

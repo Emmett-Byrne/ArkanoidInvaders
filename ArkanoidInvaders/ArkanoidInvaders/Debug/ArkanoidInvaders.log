@@ -1,9 +1,5 @@
-﻿  Invader.cpp
-  Generating Code...
-  Compiling...
-  Game.cpp
-  Generating Code...
-  Skipping... (no relevant changes detected)
-  main.cpp
-  ArkanoidInvaders.vcxproj -> C:\Users\C00220950\Desktop\ArkanoidInvaders\ArkanoidInvaders\Debug\ArkanoidInvaders.exe
-  ArkanoidInvaders.vcxproj -> C:\Users\C00220950\Desktop\ArkanoidInvaders\ArkanoidInvaders\Debug\ArkanoidInvaders.pdb (Partial PDB)
+﻿  Bolt.cpp
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\arkanoidinvaders\bolt.cpp(18): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\arkanoidinvaders\bolt.cpp(19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+e:\libraries\programs\arkanoidinvaders\arkanoidinvaders\arkanoidinvaders\bolt.cpp(48): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  ArkanoidInvaders.vcxproj -> E:\Libraries\Programs\ArkanoidInvaders\ArkanoidInvaders\Debug\ArkanoidInvaders.exe
