@@ -1,3 +1,5 @@
+/// author Emmett Byrne
+// date 25-11-17
 #pragma once
 #include <SFML\Graphics.hpp>
 

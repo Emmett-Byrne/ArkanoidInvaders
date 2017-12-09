@@ -12,6 +12,7 @@
 #include "Brick.h"
 #include "Invader.h"
 #include "CollisionDetector.h"
+#include "Hud.h"
 
 class Game
 {
@@ -29,17 +30,16 @@ private:
 	void update(sf::Time t_deltaTime);
 	void render();
 
+	void setupLevel();
 	void setupInvaders();
 	void setupBricks();
 
 	void checkCollisions();
-
-	void setupFontAndText();
+	void checkGameOver();
+	void restartLevel();
 
 
 	sf::RenderWindow m_window; // main SFML window
-	sf::Font m_ArialBlackfont; // font used by message
-	sf::Text m_welcomeMessage; // text used for message on screen
 	bool m_exitGame; // control exiting game
 
 
@@ -47,6 +47,8 @@ private:
 	sf::Texture m_brickTexture;
 	sf::Texture m_playerTexture;
 	sf::Texture m_boltTexture;
+	sf::Font m_font;
+	sf::Text m_gameOverText;
 
 	LevelData m_level;
 
@@ -55,6 +57,11 @@ private:
 
 	std::vector<Brick> m_bricks;
 	std::vector<Invader> m_invaders;
+
+	Hud m_hud;
+
+	float moveInvader;
+	bool gameOver;
 };
 
 #endif // !GAME

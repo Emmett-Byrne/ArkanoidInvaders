@@ -1,10 +1,13 @@
+/// author Emmett Byrne
+// date 25-11-17
 #include "Bolt.h"
 
 
 
 Bolt::Bolt() :
 	m_angle(45),
-	m_speed(200)
+	m_speed(200),
+	m_boosting(false)
 {
 }
 
@@ -21,6 +24,18 @@ void Bolt::update(sf::Time t)
 	sf::Vector2f velocity(x, y);
 
 	velocity *= m_speed * t.asSeconds();
+
+	if (m_boosting)
+	{
+		velocity *= 2.5f;
+		m_boostTime -= t;
+
+		if (m_boostTime.asSeconds() < 0)
+		{
+			m_boosting = false;
+		}
+	}
+
 	m_position += velocity;
 
 	m_shape.setPosition(m_position);
@@ -97,6 +112,22 @@ void Bolt::reflectY()
 void Bolt::reflectX()
 {
 	m_angle = 360 - m_angle;
+}
+
+void Bolt::setAngle(float a)
+{
+	m_angle = a;
+}
+
+void Bolt::boost()
+{
+	m_boosting = true;
+	m_boostTime = sf::seconds(5);
+}
+
+bool Bolt::isBoosting()
+{
+	return m_boosting;
 }
 
 sf::Sprite Bolt::getSprite()

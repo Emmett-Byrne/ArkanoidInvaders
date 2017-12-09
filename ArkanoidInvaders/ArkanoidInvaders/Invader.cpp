@@ -1,3 +1,5 @@
+/// author Emmett Byrne
+// date 25-11-17
 #include "Invader.h"
 
 
@@ -15,7 +17,6 @@ Invader::~Invader()
 
 void Invader::setPosition(sf::Vector2f pos)
 {
-	m_position = pos;
 	m_shape.setPosition(pos);
 }
 
@@ -37,4 +38,9 @@ bool Invader::isAlive()
 void Invader::kill()
 {
 	m_alive = false;
+}
+
+void Invader::move(sf::Vector2f move)
+{
+	m_shape.move(move);
 }

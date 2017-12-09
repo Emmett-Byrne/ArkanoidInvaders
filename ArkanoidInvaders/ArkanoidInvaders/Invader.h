@@ -1,3 +1,5 @@
+/// author Emmett Byrne
+// date 25-11-17
 #pragma once
 #include <SFML\Graphics.hpp>
 #include <iostream>
@@ -14,6 +16,7 @@ public:
 	sf::Sprite getSprite();
 	bool isAlive();
 	void kill();
+	void move(sf::Vector2f move);
 private:
 	sf::Vector2f m_position;
 	sf::Vector2f m_velocity;

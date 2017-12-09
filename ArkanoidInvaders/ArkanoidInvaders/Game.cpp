@@ -8,7 +8,9 @@
 
 Game::Game() :
 	m_window{ sf::VideoMode{ 800, 600, 32 }, "Arkanoid Invaders" },
-	m_exitGame{ false } //when true game will exit
+	m_exitGame{ false }, //when true game will exit
+	moveInvader(100),
+	gameOver(false)
 {
 	if (!LevelLoader::load(1, m_level))
 	{
@@ -36,16 +38,16 @@ Game::Game() :
 		// simple error message if previous call fails
 		std::cout << "problem loading logo" << std::endl;
 	}
+	if (!m_font.loadFromFile("Assets\\ariblk.ttf"))
+	{
+		std::cout << "problem loading arial black font" << std::endl;
+	}
+	m_gameOverText.setFont(m_font);
+	m_gameOverText.setCharacterSize(35);
+	m_gameOverText.setPosition(60, 350);
+	m_gameOverText.setString("Game Over - Press Space to restart");
 
-	m_player.setPosition(m_level.m_player.m_position);
-	m_player.setTexture(m_playerTexture);
-	m_bolt.setPosition(m_level.m_bolt.m_position);
-	m_bolt.setTexture(m_boltTexture);
-	setupBricks();
-	setupInvaders();
-
-	//setupFontAndText(); // load font 
-	//setupSprite(); // load texture
+	setupLevel();
 }
 
 
@@ -67,7 +69,10 @@ void Game::run()
 		{
 			timeSinceLastUpdate -= timePerFrame;
 			processEvents(); // at least 60 fps
-			update(timePerFrame); //60 fps
+			if (!gameOver)
+			{
+				update(timePerFrame); //60 fps
+			}
 		}
 		render(); // as many as possible
 	}
@@ -100,6 +105,19 @@ void Game::processEvents()
 			{
 				m_player.moveRight();
 			}
+			if (sf::Keyboard::Up == event.key.code)
+			{
+				if (m_hud.getPower() > 0 && !m_bolt.isBoosting())
+				{
+					m_hud.decreasePower(1);
+					m_bolt.boost();
+				}
+			}
+			if (sf::Keyboard::Space == event.key.code && gameOver)
+			{
+				gameOver = false;
+				restartLevel();
+			}
 		}
 
 		if (sf::Event::KeyReleased == event.type) //user key press
@@ -122,6 +140,8 @@ void Game::processEvents()
 /// <param name="t_deltaTime">time interval per frame</param>
 void Game::update(sf::Time t_deltaTime)
 {
+	bool Left = false;
+	bool right = false;
 	if (m_exitGame)
 	{
 		m_window.close();
@@ -129,8 +149,33 @@ void Game::update(sf::Time t_deltaTime)
 
 	m_player.update(t_deltaTime);
 	m_bolt.update(t_deltaTime);
+	for (Invader & invader : m_invaders)
+	{
+		if (invader.isAlive())
+		{
+			if (invader.getSprite().getPosition().x + invader.getSprite().getOrigin().x > 800)
+			{
+				Left = true;
+			}
+			if (invader.getSprite().getPosition().x - invader.getSprite().getOrigin().x < 0)
+			{
+				right = true;
+			}
+			invader.move(sf::Vector2f(moveInvader * t_deltaTime.asSeconds(), 0));
+		}
+	}
+	if (Left)
+	{
+		moveInvader = -100;
+	}
+	if (right)
+	{
+		moveInvader = 100;
+	}
 
 	checkCollisions();
+	checkGameOver();
+	m_hud.update(t_deltaTime);
 }
 
 /// <summary>
@@ -158,8 +203,23 @@ void Game::render()
 
 	m_player.render(m_window);
 	m_bolt.render(m_window);
+	m_hud.render(m_window);
+	if (gameOver)
+	{
+		m_window.draw(m_gameOverText);
+	}
 
 	m_window.display();
+}
+
+void Game::setupLevel()
+{
+	m_player.setPosition(m_level.m_player.m_position);
+	m_player.setTexture(m_playerTexture);
+	m_bolt.setPosition(m_level.m_bolt.m_position);
+	m_bolt.setTexture(m_boltTexture);
+	setupBricks();
+	setupInvaders();
 }
 
 void Game::setupInvaders()
@@ -216,24 +276,40 @@ void Game::checkCollisions()
 			}
 		}
 	}
+
+	//bolt - ground
+	if (m_bolt.getSprite().getPosition().y + m_bolt.getSprite().getOrigin().y > 600)
+	{
+		m_bolt.setPosition(m_level.m_bolt.m_position);
+		m_hud.decreaseTime(5);
+	}
 }
 
-/// <summary>
-/// load the font and setup the text message for screen
-/// </summary>
-void Game::setupFontAndText()
+void Game::checkGameOver()
 {
-	if (!m_ArialBlackfont.loadFromFile("ASSETS\\FONTS\\ariblk.ttf"))
+	gameOver = true;
+	for (Invader invader : m_invaders)
 	{
-		std::cout << "problem loading arial black font" << std::endl;
+		if (invader.isAlive())
+		{
+			gameOver = false;
+		}
 	}
-	m_welcomeMessage.setFont(m_ArialBlackfont);
-	m_welcomeMessage.setString("SFML Game");
-	m_welcomeMessage.setStyle(sf::Text::Underlined | sf::Text::Italic | sf::Text::Bold);
-	m_welcomeMessage.setPosition(40.0f, 40.0f);
-	m_welcomeMessage.setCharacterSize(80);
-	m_welcomeMessage.setOutlineColor(sf::Color::Red);
-	m_welcomeMessage.setFillColor(sf::Color::Black);
-	m_welcomeMessage.setOutlineThickness(3.0f);
+	for (Brick brick : m_bricks)
+	{
+		if (brick.isAlive())
+		{
+			gameOver = false;
+		}
+	}
+}
 
+void Game::restartLevel()
+{
+	m_hud.restart();
+	m_invaders.clear();
+	m_bricks.clear();
+	setupLevel();
+	moveInvader = 100;
+	m_bolt.setAngle(45);
 }

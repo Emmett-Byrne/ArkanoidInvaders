@@ -1,3 +1,5 @@
+/// author Emmett Byrne
+// date 25-11-17
 #pragma once
 #include <SFML\Graphics.hpp>
 #include <iostream>
@@ -18,16 +20,21 @@ public:
 	void reflectPaddle(sf::Sprite sprite);
 	void reflectY();
 	void reflectX();
+	void setAngle(float a);
+
+	void boost();
+	bool isBoosting();
 
 	sf::Sprite getSprite();
 private:
-	sf::Vector2f m_velocity;
 	sf::Vector2f m_position;
 	sf::Sprite m_shape;
 
 	float m_angle; //angle the ball moves at;
 	float m_speed; //scaler for how fast the ball moves
 
+	bool m_boosting;
+	sf::Time m_boostTime;
 
 	void wallCol();
 };

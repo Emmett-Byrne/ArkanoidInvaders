@@ -31,4 +31,4 @@ invaders:
 paddle:
    position: {x: 400, y: 500}
 bolt:
-   position: {x: 350, y: 450}
+   position: {x: 200, y: 300}

@@ -1,3 +1,5 @@
+/// author Emmett Byrne
+// date 25-11-17
 #include "Player.h"
 
 
@@ -25,6 +27,14 @@ void Player::update(sf::Time t)
 		m_position.x += (m_moveSpeed * t.asSeconds());
 	}
 
+	if (m_position.x - m_shape.getOrigin().x < 0)
+	{
+		m_position.x = m_shape.getOrigin().x;
+	}
+	if (m_position.x + m_shape.getOrigin().x > 800)
+	{
+		m_position.x = 800 - m_shape.getOrigin().x;
+	}
 
 	m_shape.setPosition(m_position);
 }
