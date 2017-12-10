@@ -20,28 +20,41 @@ Game::Game() :
 	if (!m_invaderTexture.loadFromFile("Assets\\Invader.png"))
 	{
 		// simple error message if previous call fails
-		std::cout << "problem loading logo" << std::endl;
+		std::cout << "problem image" << std::endl;
 	}
 
 	if (!m_brickTexture.loadFromFile("Assets\\Brick.png"))
 	{
 		// simple error message if previous call fails
-		std::cout << "problem loading logo" << std::endl;
+		std::cout << "problem image" << std::endl;
 	}
 	if (!m_boltTexture.loadFromFile("Assets\\Bolt.png"))
 	{
 		// simple error message if previous call fails
-		std::cout << "problem loading logo" << std::endl;
+		std::cout << "problem image" << std::endl;
 	}
 	if (!m_playerTexture.loadFromFile("Assets\\Player.png"))
 	{
 		// simple error message if previous call fails
-		std::cout << "problem loading logo" << std::endl;
+		std::cout << "problem image" << std::endl;
 	}
 	if (!m_font.loadFromFile("Assets\\ariblk.ttf"))
 	{
 		std::cout << "problem loading arial black font" << std::endl;
 	}
+	if (!m_paddleBuffer.loadFromFile("Assets\\paddleSound.wav"))
+	{
+		std::cout << "problem loading sound" << std::endl;
+	}
+	if (!m_enemyBuffer.loadFromFile("Assets\\brickSound.wav"))
+	{
+		std::cout << "problem loading sound" << std::endl;
+	}
+
+	m_paddleSound.setBuffer(m_paddleBuffer);
+	m_enemySound.setBuffer(m_enemyBuffer);
+
+
 	m_gameOverText.setFont(m_font);
 	m_gameOverText.setCharacterSize(35);
 	m_gameOverText.setPosition(60, 350);
@@ -248,7 +261,7 @@ void Game::checkCollisions()
 	if (CollisionDetector::collision(m_player.getSprite(), m_bolt.getSprite()))
 	{
 		m_bolt.reflectPaddle(m_player.getSprite());
-		//std::cout << "collision" << std::endl;
+		m_paddleSound.play();
 	}
 
 	//bolt - invader
@@ -260,6 +273,7 @@ void Game::checkCollisions()
 			{
 				invader.kill();
 				m_bolt.reflectX();
+				m_enemySound.play();
 			}
 		}
 	}
@@ -273,6 +287,7 @@ void Game::checkCollisions()
 			{
 				brick.kill();
 				m_bolt.reflectX();
+				m_enemySound.play();
 			}
 		}
 	}

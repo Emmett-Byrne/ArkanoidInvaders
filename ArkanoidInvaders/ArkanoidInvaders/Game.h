@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <SFML\Graphics.hpp>
+#include <SFML\Audio.hpp>
 #include "LevelLoader.h"
 #include "Player.h"
 #include "Bolt.h"
@@ -49,6 +50,12 @@ private:
 	sf::Texture m_boltTexture;
 	sf::Font m_font;
 	sf::Text m_gameOverText;
+
+	sf::SoundBuffer m_paddleBuffer;
+	sf::SoundBuffer m_enemyBuffer;
+
+	sf::Sound m_paddleSound;
+	sf::Sound m_enemySound;
 
 	LevelData m_level;
 
