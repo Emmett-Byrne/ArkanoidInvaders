@@ -18,11 +18,11 @@ public:
 	void restart();
 
 private:
-	sf::Time m_timeRemaining;
-	int m_powerUps;
+	sf::Time m_timeRemaining; //Remaingin time of the game
+	int m_powerUps; //Remaining number of powerUps
 
-	sf::Font m_font;
-	sf::Text m_timeText;
-	sf::Text m_powerText;
+	sf::Font m_font; //Font for the hud
+	sf::Text m_timeText; //Text used for the time
+	sf::Text m_powerText; //Text used for the powerups
 };
 

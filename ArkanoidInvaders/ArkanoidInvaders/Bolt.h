@@ -27,14 +27,14 @@ public:
 
 	sf::Sprite getSprite();
 private:
-	sf::Vector2f m_position;
-	sf::Sprite m_shape;
+	sf::Vector2f m_position; //Position of bold
+	sf::Sprite m_shape; //Bolt shape object
 
 	float m_angle; //angle the ball moves at;
 	float m_speed; //scaler for how fast the ball moves
 
-	bool m_boosting;
-	sf::Time m_boostTime;
+	bool m_boosting; //If bolt has been speed boosted
+	sf::Time m_boostTime; //Remaining time of boost
 
 	void wallCol();
 };

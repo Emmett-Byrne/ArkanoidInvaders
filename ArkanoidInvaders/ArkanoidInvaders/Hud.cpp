@@ -27,21 +27,33 @@ Hud::~Hud()
 {
 }
 
+/// <summary>
+/// updates the state of the hud
+/// </summary>
 void Hud::update(sf::Time t)
 {
 	m_timeRemaining -= t;
 }
 
+/// <summary>
+/// decresases the amount of powerUps
+/// </summary>
 void Hud::decreasePower(int p)
 {
 	m_powerUps -= p;
 }
 
+/// <summary>
+/// decreases time
+/// </summary>
 void Hud::decreaseTime(float t)
 {
 	m_timeRemaining -= sf::seconds(t);
 }
 
+/// <summary>
+/// renders the hud
+/// </summary>
 void Hud::render(sf::RenderWindow & window)
 {
 	m_timeText.setString("Time: " + std::to_string(static_cast<int>(m_timeRemaining.asSeconds())));
@@ -50,16 +62,25 @@ void Hud::render(sf::RenderWindow & window)
 	window.draw(m_powerText);
 }
 
+/// <summary>
+/// Returns the current time fo the hud
+/// </summary>
 sf::Time Hud::getTime()
 {
 	return m_timeRemaining;
 }
 
+/// <summary>
+/// returns the amount of powerups left
+/// </summary>
 int Hud::getPower()
 {
 	return m_powerUps;
 }
 
+/// <summary>
+/// restarts the hud to it's original values
+/// </summary>
 void Hud::restart()
 {
 	m_timeRemaining = sf::seconds(90);

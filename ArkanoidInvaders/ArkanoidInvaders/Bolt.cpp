@@ -16,6 +16,9 @@ Bolt::~Bolt()
 {
 }
 
+/// <summary>
+/// updates teh state if the bolt
+/// </summary>
 void Bolt::update(sf::Time t)
 {
 	float x = cos(m_angle * acos(-1.0f) / 180.0);
@@ -42,23 +45,35 @@ void Bolt::update(sf::Time t)
 	wallCol();
 }
 
+/// <summary>
+/// sets the position of the bolt
+/// </summary>
 void Bolt::setPosition(sf::Vector2f pos)
 {
 	m_position = pos;
 	m_shape.setPosition(pos);
 }
 
+/// <summary>
+/// sets the bolts texture
+/// </summary>
 void Bolt::setTexture(sf::Texture & tex)
 {
 	m_shape.setTexture(tex);
 	m_shape.setOrigin(m_shape.getLocalBounds().width / 2, m_shape.getLocalBounds().height / 2);
 }
 
+/// <summary>
+/// renders the bolt
+/// </summary>
 void Bolt::render(sf::RenderWindow & window)
 {
 	window.draw(m_shape);
 }
 
+/// <summary>
+/// handles reflecting the bolt off the player
+/// </summary>
 void Bolt::reflectPaddle(sf::Sprite sprite)
 {
 	float x = cos(m_angle * acos(-1.0f) / 180.0);
@@ -84,6 +99,9 @@ void Bolt::reflectPaddle(sf::Sprite sprite)
 	//Could still get stuck in paddle set y to top of paddle + radius
 }
 
+/// <summary>
+/// handles reflecting the bolt off the edges of the level
+/// </summary>
 void Bolt::wallCol()
 {
 	if (m_position.y - m_shape.getOrigin().y < 0)
@@ -100,6 +118,9 @@ void Bolt::wallCol()
 	}
 }
 
+/// <summary>
+/// reflects the bolt on the y-axis
+/// </summary>
 void Bolt::reflectY()
 {
 	m_angle = 180 - m_angle;
@@ -109,27 +130,42 @@ void Bolt::reflectY()
 	}
 }
 
+/// <summary>
+/// reflects the bolt on the x-axis
+/// </summary>
 void Bolt::reflectX()
 {
 	m_angle = 360 - m_angle;
 }
 
+/// <summary>
+/// sets the directional angle of the bolt
+/// </summary>
 void Bolt::setAngle(float a)
 {
 	m_angle = a;
 }
 
+/// <summary>
+/// Sets the bolt to start boosting
+/// </summary>
 void Bolt::boost()
 {
 	m_boosting = true;
 	m_boostTime = sf::seconds(5);
 }
 
+/// <summary>
+/// returns wheather the bolt is boosting or not
+/// </summary>
 bool Bolt::isBoosting()
 {
 	return m_boosting;
 }
 
+/// <summary>
+/// return the bolts sprite
+/// </summary>
 sf::Sprite Bolt::getSprite()
 {
 	return m_shape;

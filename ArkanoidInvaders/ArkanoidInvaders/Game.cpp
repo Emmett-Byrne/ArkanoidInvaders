@@ -225,6 +225,9 @@ void Game::render()
 	m_window.display();
 }
 
+/// <summary>
+/// Uses the data retrieve from the yaml file to set up the level
+/// </summary>
 void Game::setupLevel()
 {
 	m_player.setPosition(m_level.m_player.m_position);
@@ -235,6 +238,9 @@ void Game::setupLevel()
 	setupInvaders();
 }
 
+/// <summary>
+/// gives the invaders the data from the yaml fule
+/// </summary>
 void Game::setupInvaders()
 {
 	for (InvaderData const & invaderData : m_level.m_invaders)
@@ -245,6 +251,9 @@ void Game::setupInvaders()
 	}
 }
 
+/// <summary>
+/// gives the bricks the data from the yaml fule
+/// </summary>
 void Game::setupBricks()
 {
 	for (BrickData const & brickData : m_level.m_bricks)
@@ -255,6 +264,9 @@ void Game::setupBricks()
 	}
 }
 
+/// <summary>
+/// Checks for collisions between game objects
+/// </summary>
 void Game::checkCollisions()
 {
 	//player - bolt
@@ -300,6 +312,9 @@ void Game::checkCollisions()
 	}
 }
 
+/// <summary>
+/// Checks of the game is over
+/// </summary>
 void Game::checkGameOver()
 {
 	gameOver = true;
@@ -319,6 +334,9 @@ void Game::checkGameOver()
 	}
 }
 
+/// <summary>
+/// Restarts all the objects to their original position
+/// </summary>
 void Game::restartLevel()
 {
 	m_hud.restart();

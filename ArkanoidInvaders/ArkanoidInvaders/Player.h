@@ -22,8 +22,8 @@ public:
 	void stopRight();
 
 private:
-	sf::Vector2f m_position;
-	sf::Sprite m_shape;
+	sf::Vector2f m_position; //Platers position
+	sf::Sprite m_shape; //Player shape object
 
 	bool m_moveLeft;
 	bool m_moveRight;

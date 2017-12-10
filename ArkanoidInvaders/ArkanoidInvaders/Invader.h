@@ -18,9 +18,9 @@ public:
 	void kill();
 	void move(sf::Vector2f move);
 private:
-	sf::Vector2f m_position;
-	sf::Vector2f m_velocity;
-	sf::Sprite m_shape;
+	sf::Vector2f m_position; //Invaders position
+	sf::Vector2f m_velocity; //Invaders velocity
+	sf::Sprite m_shape; //Invader shape object
 
-	bool m_alive;
+	bool m_alive; //If invader is alive
 };

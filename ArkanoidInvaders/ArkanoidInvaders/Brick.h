@@ -17,8 +17,8 @@ public:
 	void kill();
 	bool isAlive();
 private:
-	sf::Vector2f m_position;
-	sf::Sprite m_shape;
+	sf::Vector2f m_position; //Position of brick
+	sf::Sprite m_shape; //Brick shape object
 
-	bool m_alive;
+	bool m_alive; //If brick is alive
 };

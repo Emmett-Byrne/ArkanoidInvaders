@@ -44,31 +44,31 @@ private:
 	bool m_exitGame; // control exiting game
 
 
-	sf::Texture m_invaderTexture; // texture used for invader
-	sf::Texture m_brickTexture;
-	sf::Texture m_playerTexture;
-	sf::Texture m_boltTexture;
-	sf::Font m_font;
-	sf::Text m_gameOverText;
+	sf::Texture m_invaderTexture; // invader texture
+	sf::Texture m_brickTexture; // brick texture
+	sf::Texture m_playerTexture; // player texture
+	sf::Texture m_boltTexture; // bolt texture
+	sf::Font m_font; // font used in the game
+	sf::Text m_gameOverText; // game over message
 
-	sf::SoundBuffer m_paddleBuffer;
-	sf::SoundBuffer m_enemyBuffer;
+	sf::SoundBuffer m_paddleBuffer; //buffer for the bolt - paddle sound
+	sf::SoundBuffer m_enemyBuffer; //buffer for the bolt - enemy sound
 
-	sf::Sound m_paddleSound;
-	sf::Sound m_enemySound;
+	sf::Sound m_paddleSound; //paddle sound
+	sf::Sound m_enemySound; //enemy sound
 
-	LevelData m_level;
+	LevelData m_level; //contains the data for the level
 
-	Player m_player;
-	Bolt m_bolt;
+	Player m_player; //Object to control and manipulate the palyer
+	Bolt m_bolt; //Object to control and manipulate the bolt
 
-	std::vector<Brick> m_bricks;
-	std::vector<Invader> m_invaders;
+	std::vector<Brick> m_bricks; //Object to control and manipulate the bricks
+	std::vector<Invader> m_invaders; //Object to control and manipulate the invaders
 
-	Hud m_hud;
+	Hud m_hud; //Object to control and manipulate the HUD
 
-	float moveInvader;
-	bool gameOver;
+	float moveInvader; //amount the inader moves
+	bool gameOver; //If game is over
 };
 
 #endif // !GAME
